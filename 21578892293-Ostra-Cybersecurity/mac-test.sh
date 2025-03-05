@@ -3,7 +3,7 @@
 REPO_URL="https://github.com/chetan-ostra/ocs-epdr.git"
 BRANCH="main" 
 LOCAL_DIR="/tmp/s1"
-FILE_PATH="/tmp/s1/pkgs/Sentinel-Release-23-3-2-7123_macos_v23_3_2_7123.pkg"
+FILE_PATH="/tmp/s1/pkgs/Sentinel-Release-24-1-3-7587_macos_v24_1_3_7587.pkg"
 TOKEN_FILE="/tmp/s1/21578892293-Ostra-Cybersecurity/ostra-token.txt"
 #TOKEN_FILE="/path/to/token/file"  # Specify the correct path to your token file
 
