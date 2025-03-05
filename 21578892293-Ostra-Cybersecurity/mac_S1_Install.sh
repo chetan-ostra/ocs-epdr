@@ -17,5 +17,3 @@ else
         /usr/sbin/installer -pkg $dir$installer -target /
         rm -f $dir$tokenfile
 fi
-
-
