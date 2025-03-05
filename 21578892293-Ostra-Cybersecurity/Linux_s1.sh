@@ -16,10 +16,10 @@ else
 cd /tmp
 
 #Download Agent
-wget $pkgName $downloadLink1 $sentinelToken
+curl -O $downloadLink1 $sentinelToken
 
 #Install Agent
-#chmod +x $pkgName
+chmod +x $downloadLink1 $sentinelToken
 dpkg -i $pkgName
 
 #Set Token
