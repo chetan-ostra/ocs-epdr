@@ -2,7 +2,7 @@
 
 # find out there's a way to encrypt the script.
 REPO_URL="https://github.com/chetan-ostra/ocs-epdr.git"
-BRANCH="surmodics" # not required as per new design; make changes to branch 
+BRANCH="main" # not required as per new design; make changes to branch 
 LOCAL_DIR="/tmp/s1" # remove folder after installation
 FILE_PATH="/tmp/s1/pkgs/SentinelAgent_linux_x86_64_v23_3_2_12.deb"
 #TOKEN_FILE="/tmp/s1/21578892293-Ostra-Cybersecurity/ostra-token.txt" #update token with the script and host them internally.
