@@ -30,17 +30,18 @@ if [ ! -f "$FILE_PATH" ]; then
     exit 1
 fi
 
-echo "Installing the package..."
-sudo installer -pkg "$FILE_PATH" -target /
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to install the package."
-    exit 1
-fi
-
 echo "Applying token..."
 TOKEN=$(cat "$TOKEN_FILE")
 if [ $? -ne 0 ]; then
     echo "Error: Failed to read the token from the file."
+    exit 1
+fi
+echo $TOKEN > /tmp/com.sentinelone.registration-token
+
+echo "Installing the package..."
+sudo installer -pkg "$FILE_PATH" -target /
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to install the package."
     exit 1
 fi
 
