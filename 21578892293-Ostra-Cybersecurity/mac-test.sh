@@ -1,5 +1,4 @@
 #!/bin/bash
-
 REPO_URL="https://github.com/chetan-ostra/ocs-epdr.git"
 BRANCH="main" 
 LOCAL_DIR="/tmp/s1"
