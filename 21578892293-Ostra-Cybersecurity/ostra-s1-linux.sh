@@ -1,14 +1,15 @@
 #!/bin/bash
+
 REPO_URL="https://github.com/chetan-ostra/ocs-epdr.git"
-BRANCH="main" 
-LOCAL_DIR="/tmp/s1"
-FILE_PATH="/tmp/s1/pkgs/Sentinel-Release-23-3-2-7123_macos_v23_3_2_7123.pkg"
-TOKEN_FILE="/tmp/s1/21578892293-Ostra-Cybersecurity/ostra-token.txt"
-#TOKEN_FILE="/path/to/token/file"  # Specify the correct path to your token file
+BRANCH="main"  
+LOCAL_DIR="/tmp/s1" 
+FILE_PATH="/tmp/s1/pkgs/SentinelAgent_linux_x86_64_v23_3_2_12.deb"
+TOKEN_FILE="/tmp/s1/21578892293-Ostra-Cybersecurity/ostra-token.txt" #update token with the script and host them internally.
+
 
 if [ -d "$LOCAL_DIR" ]; then
     echo "Removing existing directory: $LOCAL_DIR"
-    rm -rf "$LOCAL_DIR"
+    rm -rf "$LOCAL_DIR" 
     if [ $? -ne 0 ]; then
         echo "Error: Failed to remove the existing directory."
         exit 1
@@ -29,24 +30,28 @@ if [ ! -f "$FILE_PATH" ]; then
     exit 1
 fi
 
-echo "Installing the package..."
-sudo installer -pkg "$FILE_PATH" -target /
+echo "Making the file executable..."
+chmod +x "$FILE_PATH"
 if [ $? -ne 0 ]; then
-    echo "Error: Failed to install the package."
+    echo "Error: Failed to make the file executable."
     exit 1
 fi
 
-echo "Setting the management token and starting SentinelOne..."
-sudo /opt/sentinelone/bin/sentinelctl management token set "$TOKEN"
+echo "Executing the file..."
+dpkg -i "$FILE_PATH"
 if [ $? -ne 0 ]; then
-    echo "Error: Failed to set the management token."
+    echo "Error: Failed to execute the file."
     exit 1
 fi
 
-sudo /opt/sentinelone/bin/sentinelctl control start
+echo "applying token"
+TOKEN=$(cat "$TOKEN_FILE")
 if [ $? -ne 0 ]; then
-    echo "Error: Failed to start SentinelOne."
+    echo "error token file"
     exit 1
 fi
 
+/opt/sentinelone/bin/sentinelctl management token set $TOKEN
+/opt/sentinelone/bin/sentinelctl control start
+rm -rf $LOCAL_DIR
 echo "File executed successfully!"
