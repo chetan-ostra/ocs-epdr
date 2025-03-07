@@ -3,8 +3,9 @@
 REPO_URL="https://github.com/chetan-ostra/ocs-epdr.git"
 BRANCH="main" 
 LOCAL_DIR="/tmp/s1"
-FILE_PATH="/tmp/s1/pkgs/Sentinel-Release-24-4-1-7830_macos_v24_4_1_7830.pkg"
-TOKEN_FILE="/tmp/s1/pkgs/com.sentinelone.registration-token"
+FILE_PATH="/tmp/s1/pkgs/Sentinel-Release-23-3-2-7123_macos_v23_3_2_7123.pkg"
+TOKEN_FILE="/tmp/s1/21578892293-Ostra-Cybersecurity/ostra-token.txt"
+#TOKEN_FILE="/path/to/token/file"  # Specify the correct path to your token file
 
 if [ -d "$LOCAL_DIR" ]; then
     echo "Removing existing directory: $LOCAL_DIR"
